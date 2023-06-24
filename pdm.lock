@@ -215,8 +215,8 @@ summary = "Module for decorators, wrappers and monkey patching."
 [metadata]
 lock_version = "4.2"
 cross_platform = true
-groups = ["default"]
-content_hash = "sha256:5e5e4eca3d44ec49b35fdc9eab61af4b879a3ef6be6db7f16a676b3d32770206"
+groups = ["default", "lint", "test"]
+content_hash = "sha256:39a64a899794cd0329e2306b79402cb477e2b8134fa459099fa76110205ce326"
 
 [metadata.files]
 "annotated-types 0.5.0" = [

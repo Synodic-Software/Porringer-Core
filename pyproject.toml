@@ -1,8 +1,8 @@
 
 [project]
-name = "porringer-core"
 description = ""
 license = "MIT"
+name = "porringer-core"
 
 authors = [
   {name = "Synodic Software", email = "contact@synodic.software"},
@@ -41,11 +41,11 @@ test = [
 ]
 
 [tool.pdm.scripts]
-analyze = {shell = "pylint --verbose porringer-core tests"}
+analyze = {shell = "pylint --verbose porringer_core tests"}
 format = {shell = "black --check --verbose ."}
 lint = {composite = ["analyze", "format", "sort-imports", "type-check"]}
 sort-imports = {shell = "isort --check-only --diff --verbose ."}
-test = {shell = "pytest --cov=porringer-core --verbose tests"}
+test = {shell = "pytest --cov=porringer_core --verbose tests"}
 type-check = {shell = "mypy ."}
 
 [tool.pytest.ini_options]
