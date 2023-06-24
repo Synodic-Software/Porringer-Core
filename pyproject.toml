@@ -26,7 +26,6 @@ repository = "https://github.com/Synodic-Software/Porringer-Core"
 
 [tool.pdm]
 version = {use_scm = true}
-
 [tool.pdm.dev-dependencies]
 lint = [
   "black>=23.1.0",
