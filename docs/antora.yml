@@ -1,0 +1,4 @@
+name: porringer-core
+title: Porringer-Core Documentation
+nav:
+  - modules/ROOT/nav.adoc
