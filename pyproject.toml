@@ -1,8 +1,9 @@
 
 [project]
 description = ""
-license = "MIT"
 name = "porringer-core"
+
+license = {text = "MIT"}
 
 authors = [
   {name = "Synodic Software", email = "contact@synodic.software"},
@@ -14,7 +15,7 @@ dynamic = ["version"]
 requires-python = ">=3.11"
 
 dependencies = [
-  "pydantic>=2.0b3",
+  "pydantic>=2.2",
 ]
 
 [project.license-files]
@@ -24,20 +25,23 @@ paths = ["LICENSE.md"]
 homepage = "https://github.com/Synodic-Software/Porringer-Core"
 repository = "https://github.com/Synodic-Software/Porringer-Core"
 
-[tool.pdm]
-version = {use_scm = true}
+[tool.pdm.options]
+update = ["--update-all"]
+
+[tool.pdm.version]
+source = "scm"
+
 [tool.pdm.dev-dependencies]
 lint = [
-  "black>=23.1.0",
-  "isort>=5.10.1",
-  "mypy>=1.3.0",
-  "pylint>=2.16.1",
+  "black>= 23.7.0 ",
+  "isort>=5.12.0",
+  "mypy>=1.5.1 ",
+  "pylint>=2.17.5",
 ]
 test = [
-  "pytest>=7.1.2",
-  "pytest-cov>=4.0.0",
-  "tomlkit>=0.11.4",
-  "pytest-mock>=3.10.0",
+  "pytest>=7.4.0",
+  "pytest-cov>=4.1.0",
+  "pytest-mock>=3.11.1",
 ]
 
 [tool.pdm.scripts]
@@ -91,5 +95,5 @@ default-docstring-type = "google"
 skip_empty = true
 
 [build-system]
-build-backend = "pdm.pep517.api"
-requires = ["pdm-pep517"]
+build-backend = "pdm.backend"
+requires = ["pdm.backend"]
