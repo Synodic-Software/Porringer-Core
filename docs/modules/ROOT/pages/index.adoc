@@ -1,2 +1,8 @@
 = Porringer-Core Documentation
 :navtitle: Porringer-Core Documentation
+
+== Interfaces
+
+The core of Porringer provides the definition of a few interfaces that interact with each other and external plugins. 
+
+Environment
