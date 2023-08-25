@@ -3,7 +3,7 @@
 from abc import abstractmethod
 from typing import Protocol
 
-from porringer_core.schema import Package
+from porringer_core.schema import Package, PackageName
 
 
 class EnvironmentPlugin(Protocol):
@@ -19,8 +19,11 @@ class EnvironmentPlugin(Protocol):
         raise NotImplementedError
 
     @abstractmethod
-    def search(self) -> Package | None:
+    def search(self, name: PackageName) -> Package | None:
         """Searches the environment's sources for a package
+
+        Args:
+            name: The package name to search for
 
         Returns:
             The package, or None if it doesn't exist
