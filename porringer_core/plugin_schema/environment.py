@@ -1,11 +1,18 @@
 """Plugin utilities for package environments"""
 
 from abc import abstractmethod
-from typing import Protocol, TypeVar
+from typing import TypeVar
 
 from pydantic import BaseModel, Field
+from typing_extensions import override
 
-from porringer_core.schema import Package, PackageName
+from porringer_core.schema import (
+    Information,
+    Package,
+    PackageName,
+    Plugin,
+    SupportedFeatures,
+)
 
 
 class InstallParameters(BaseModel):
@@ -37,8 +44,28 @@ class UpgradeParameters(BaseModel):
     )
 
 
-class Environment(Protocol):
+class Environment(Plugin):
     """Plugin definition for package environments"""
+
+    @staticmethod
+    @override
+    def features() -> SupportedFeatures:
+        """Broadcasts the shared features of the plugin to Porringer
+
+        Returns:
+            The supported features
+        """
+        return SupportedFeatures()
+
+    @staticmethod
+    @override
+    def information() -> Information:
+        """Retrieves plugin information that complements the packaged project metadata
+
+        Returns:
+            The plugin's information
+        """
+        return Information()
 
     @abstractmethod
     def packages(self) -> list[Package]:
