@@ -1,7 +1,7 @@
 """Plugin utilities for package environments"""
 
 from abc import abstractmethod
-from typing import Protocol
+from typing import Protocol, TypeVar
 
 from pydantic import BaseModel, Field
 
@@ -37,7 +37,7 @@ class UpgradeParameters(BaseModel):
     )
 
 
-class EnvironmentPlugin(Protocol):
+class Environment(Protocol):
     """Plugin definition for package environments"""
 
     @abstractmethod
@@ -96,3 +96,6 @@ class EnvironmentPlugin(Protocol):
             A list of packages that were upgraded. Each item could be None if there was a failure
         """
         raise NotImplementedError
+
+
+EnvironmentT = TypeVar("EnvironmentT", bound=Environment)
