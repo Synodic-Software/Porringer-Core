@@ -10,5 +10,5 @@ PackageName = NewType("PackageName", str)
 class Package(BaseModel):
     """Package definition"""
 
-    name: str
+    name: PackageName
     version: str
