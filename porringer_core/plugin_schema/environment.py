@@ -1,10 +1,9 @@
 """Plugin utilities for package environments"""
 
 from abc import abstractmethod
-from typing import TypeVar
+from typing import TypeVar, override
 
 from pydantic import BaseModel, Field
-from typing_extensions import override
 
 from porringer_core.schema import (
     Information,
