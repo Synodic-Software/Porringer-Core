@@ -1,7 +1,6 @@
 """Schema for Porringer"""
 
 from abc import abstractmethod
-from importlib.metadata import Distribution
 from typing import NewType, Protocol, TypeVar
 
 from pydantic import BaseModel
@@ -16,7 +15,7 @@ class PorringerModel(BaseModel):
 PackageName = NewType("PackageName", str)
 
 
-class Package(BaseModel):
+class Package(PorringerModel):
     """Package definition"""
 
     name: PackageName
@@ -25,6 +24,12 @@ class Package(BaseModel):
 
 class SupportedFeatures(PorringerModel):
     """Plugin feature support"""
+
+
+class Distribution(PorringerModel):
+    """Data that describes the distribution of the plugin"""
+
+    version: str
 
 
 class PluginParameters(PorringerModel):
